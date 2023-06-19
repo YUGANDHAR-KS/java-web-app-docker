@@ -1,10 +1,10 @@
 node {
-      //  def mavenHome= tool name: "Maven_3.9.2", type: "maven"
+  def mavenHome= tool name: "Maven_3.9.2", type: "maven"
     stage('Checkout') {
         git url: 'https://github.com/sidatKS/java-web-app-docker.git',  branch: 'master'
     }
     stage('Sonar Scan') {
-        def mavenHome= tool name: "Maven_3.9.2", type: "maven"
+//        def mavenHome= tool name: "Maven_3.9.2", type: "maven"
     withSonarQubeEnv('SonarCloud') {
         sh "${mavenHome}/bin/mvn clean verify sonar:sonar \
                 -Dsonar.host.url=<https://sonarcloud.io> \
